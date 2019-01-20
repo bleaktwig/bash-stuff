@@ -45,7 +45,9 @@ alias jprof="~/./programs/jprofiler10/bin/jprofiler"
 alias idea="~/./programs/idea-IC-183.4886.37/bin/idea.sh"
 
 # JLab related
-alias bar="./build-coatjava.sh; cd validation/advanced-tests/; ./run-advanced-tests.sh; atom report; ..."
+alias jbld="./build.sh; ./install.sh"
+alias jtst="./run.sh; ./test.sh"
+alias jrep="./report.sh"
 alias cpjson="cpi DC.json coatjava/etc/bankdefs/hipo/;
               cpi DC.json etc/bankdefs/hipo/;
               cpi DC.json common-tools/cnuphys/coatjava/etc/bankdefs/hipo/;"
