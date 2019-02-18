@@ -1,3 +1,5 @@
+#!/bin/sh -f
+
 # cd
 alias b="cd - > /dev/null"
 alias ..="cd .."
@@ -30,6 +32,7 @@ alias hgrep="history | grep"
 alias fswap="sudo swapoff -a && sudo swapon -a"
 alias itest="ping google.com -c 1"
 alias istest="speedtest"
+alias kfranz="for pid in $(pidof franz); do kill $pid; done"
 
 # scripts
 alias cpcd="echo TODO"
@@ -41,11 +44,11 @@ alias ipython="ipython3"
 alias pip="pip3"
 
 # programs
-alias jprof="~/./programs/jprofiler10/bin/jprofiler"
-alias idea="~/./programs/idea-IC-183.4886.37/bin/idea.sh"
+alias jprof="~/./linux-programs/jprofiler10/bin/jprofiler"
+alias idea="~/./linux-programs/idea-IC-183.4886.37/bin/idea.sh"
 
 # JLab related
-alias jbld="./build.sh; ./install.sh"
+alias jbld="./build.sh"
 alias jtst="./run.sh; ./test.sh"
 alias jrep="./report.sh"
 alias cpjson="cpi DC.json coatjava/etc/bankdefs/hipo/;
