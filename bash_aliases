@@ -32,7 +32,7 @@ alias hgrep="history | grep"
 alias fswap="sudo swapoff -a && sudo swapon -a"
 alias itest="ping google.com -c 1"
 alias istest="speedtest"
-alias kfranz="for pid in $(pidof franz); do kill $pid; done"
+alias kfranz="killall franz"
 
 # scripts
 alias cpcd="echo TODO"
@@ -44,8 +44,9 @@ alias ipython="ipython3"
 alias pip="pip3"
 
 # programs
-alias jprof="~/./linux-programs/jprofiler10/bin/jprofiler"
-alias idea="~/./linux-programs/idea-IC-183.4886.37/bin/idea.sh"
+alias vvm="~/./linux-programs/visualvm_142/bin/visualvm"
+alias idea="~/./linux-programs/idea/bin/idea.sh"
+alias tor="~/./linux-programs/tor/start-tor-browser.desktop"
 
 # JLab related
 alias jbld="./build.sh"
