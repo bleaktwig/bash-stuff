@@ -33,25 +33,15 @@ alias fswap="sudo swapoff -a && sudo swapon -a"
 alias itest="ping google.com -c 1"
 alias istest="speedtest"
 alias kfranz="killall franz"
+alias kslack="killall slack"
+alias rkenv="conda activate RK4"
+alias bconda="conda deactivate"
 
 # scripts
 alias cpcd="echo TODO"
 alias mvcd="echo TODO"
 
-# python3 is best python
-alias python="python3"
-alias ipython="ipython3"
-alias pip="pip3"
-
 # programs
 alias vvm="~/./linux-programs/visualvm_142/bin/visualvm"
 alias idea="~/./linux-programs/idea/bin/idea.sh"
 alias tor="~/./linux-programs/tor/start-tor-browser.desktop"
-
-# JLab related
-alias jbld="./build.sh"
-alias jtst="./run.sh; ./test.sh"
-alias jrep="./report.sh"
-alias cpjson="cpi DC.json coatjava/etc/bankdefs/hipo/;
-              cpi DC.json etc/bankdefs/hipo/;
-              cpi DC.json common-tools/cnuphys/coatjava/etc/bankdefs/hipo/;"
