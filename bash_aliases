@@ -11,7 +11,6 @@ alias .......="cd ../../../../../.."
 alias ........="cd ../../../../../../.."
 
 # ls
-alias ls="ls --group-directories-first"
 alias lsa="ls -A"
 alias ll="ls -alF"
 alias l="ls -CF"
