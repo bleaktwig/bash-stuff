@@ -11,6 +11,7 @@ alias .......="cd ../../../../../.."
 alias ........="cd ../../../../../../.."
 
 # ls
+# alias ls="ls --group-directories-first"
 alias lsa="ls -A"
 alias ll="ls -alF"
 alias l="ls -CF"
@@ -43,6 +44,7 @@ alias mvcd="echo TODO"
 
 # programs
 alias ok=okular
+alias gemc="sudo docker run -it --rm jeffersonlab/gemcbatch:2.7 bash"
 alias vvm="~/./linux-programs/visualvm_142/bin/visualvm"
 alias idea="~/./linux-programs/idea/bin/idea.sh"
 alias tor="~/./linux-programs/tor/start-tor-browser.desktop"
