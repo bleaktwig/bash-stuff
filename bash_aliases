@@ -44,7 +44,8 @@ alias mvcd="echo TODO"
 
 # programs
 alias ok=okular
-alias gemc="sudo docker run -it --rm jeffersonlab/gemcbatch:2.7 bash"
+alias gemc="sudo docker run -it --rm -v /home/twig/code/gemc/jlab:/jlab/work/benkel jeffersonlab/gemcbatch:2.7 bash"
+alias gemc_browser="sudo docker run -it --rm -p 6080:6080 -v /home/twig/code/gemc/jlab:/jlab/work/benkel jeffersonlab/gemcinteractive:2.7"
 alias vvm="~/./linux-programs/visualvm_142/bin/visualvm"
 alias idea="~/./linux-programs/idea/bin/idea.sh"
 alias tor="~/./linux-programs/tor/start-tor-browser.desktop"
