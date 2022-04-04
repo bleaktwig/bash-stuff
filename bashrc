@@ -115,3 +115,47 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Setup path.
+## Common apps
+export PATH=$HOME"/programs":$PATH
+
+## ROOT
+export ROOT="/home/twig/code/root-6.24.06" # c++14 version
+# export ROOT="/home/twig/code/root-6.26" # c++17 version
+export PATH=$ROOT"/bin":$PATH
+source $ROOT/bin/thisroot.sh
+
+## CCDB
+export CCDB_CONNECTION="/home/twig/data/ccdb_2022-04-03.sqlite"
+export CCDB_HOME="/home/twig/code/jlab/ccdb"
+source $CCDB_HOME"/environment.bash"
+
+## RCDB
+export RCDB_HOME="/home/twig/code/jlab/rcdb"
+source $RCDB_HOME"/environment.bash"
+
+## QADB
+export QADB_HOME="/home/twig/code/jlab/qadb"
+export CPATH=$QADB_HOME"/srcC/include":$CPATH
+source $QADB_HOME"/env.sh" > /dev/null
+
+## COATJAVA
+export COATJAVA="/home/twig/code/jlab/coatjava-7.1.0"
+export PATH=$COATJAVA"/bin":$PATH
+
+## HIPO
+export HIPO="/home/twig/code/jlab/hipo"
+
+## CLAS12ROOT
+export CLAS12ROOT="/home/twig/code/jlab/clas12root"
+export LD_LIBRARY_PATH=$CLAS12ROOT"/lib":$LD_LIBRARY_PATH
+export PATH=$CLAS12ROOT"/bin":$PATH
+
+## visualvm
+export VISUALVM="/home/twig/code/visualvm_212"
+export PATH=$VISUALVM"/bin":$PATH
+
+## RTEMS and VMI work
+# export RTEMS="/home/twig/code/vmi/rtems"
+# export PATH=$RTEMS"/4.11/bin":$PATH

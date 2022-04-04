@@ -34,6 +34,8 @@ alias hgrep="history | grep"
 alias fswap="sudo swapoff -a && sudo swapon -a"
 alias itest="ping google.com -c 1"
 alias istest="speedtest"
+alias spy2="alias python=python2"
+alias spy3="alias python=python3"
 
 # Displaying free and used space.
 alias dfree='df -h'
@@ -81,5 +83,5 @@ extract() {
 
 # programs
 alias ok=okular
-alias gemc="sudo docker run -it --rm -v /home/twig/code/gemc/jlab:/jlab/work/benkel jeffersonlab/gemcbatch:2.7 bash"
-alias gemc_browser="sudo docker run -it --rm -p 6080:6080 -v /home/twig/code/gemc/jlab:/jlab/work/benkel jeffersonlab/gemcinteractive:2.7"
+alias scons2="/usr/bin/env python2 $(which scons)"
+alias scons3="/usr/bin/env python3 $(which scons)"
