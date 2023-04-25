@@ -19,7 +19,6 @@ fi
 # Avoid accidental overwriting.
 set -o noclobber # Don't overwrite by default.
 alias cp="cp -i"
-alias rm="rm -i"
 alias mv="mv -i"
 
 # terminal colors.
@@ -51,6 +50,15 @@ xterm*|rxvt*)
 *)
     ;;
 esac
+
+# Enable programmable completion features.
+if ! shopt -oq posix; then
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
+fi
 
 # --+ Aliases +-----------------------------------------------------------------
 # cd (TODO: I feel that this could be easily improved).
@@ -121,51 +129,35 @@ extract() {
     fi
 }
 
-# Program shortcuts.
-alias ok=okular
+# --+ LOCATIONS +---------------------------------------------------------------
+## PATH
+export PATH=""
+export PATH=$PATH"/bin:/sbin"
+export PATH=$PATH":/usr/bin:/usr/sbin"
+export PATH=$PATH":/usr/local/bin:/usr/local/sbin"
+export PATH=$PATH":/home/twig/.local/bin"
+export PATH=$PATH":/opt/bin"
 
-# --+ OLD +---------------------------------------------------------------------
-# Enable programmable completion features.
-if ! shopt -oq posix; then
-    if [ -f /usr/share/bash-completion/bash_completion ]; then
-        . /usr/share/bash-completion/bash_completion
-    elif [ -f /etc/bash_completion ]; then
-        . /etc/bash_completion
-    fi
-fi
+## Java.
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 
-# --+ Path +--------------------------------------------------------------------
-# Common apps.
-# export PATH=$HOME"/programs":$PATH
+## ROOT.
+export ROOT="/opt/root-6.28.00"
+source $ROOT/bin/thisroot.sh
 
-## Java
-# export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-# export PATH=$JAVA_HOME/bin:$PATH
+## CCDB.
+export CCDB_CONNECTION="sqlite:////home/twig/data/ccdb_2023-04-16.sqlite"
+export CCDB_HOME="/opt/ccdb"
+source $CCDB_HOME"/environment.bash"
 
-# ROOT.
-# export ROOT="/home/twig/code/root-6.28.00"
-# export PATH=$ROOT"/bin":$PATH
-# source $ROOT/bin/thisroot.sh
+## RCDB.
+export RCDB_CONNECTION="mysql://rcdb@hallddb.jlab.org/rcdb"
+export RCDB_SQLITE="/home/twig/data/rcdb_2023-03-21.sqlite"
+export RCDB_HOME="/opt/rcdb"
+source $RCDB_HOME"/environment.bash"
 
-## CCDB
-# export CCDB_CONNECTION="/home/twig/data/ccdb_2022-04-03.sqlite"
-# export CCDB_HOME="/home/twig/code/jlab/ccdb"
-# source $CCDB_HOME"/environment.bash"
+## HIPO.
+export HIPO="/opt/hipo"
 
-## RCDB
-# export RCDB_CONNECTION="mysql://rcdb@hallddb.jlab.org/rcdb"
-# export RCDB_HOME="/home/twig/code/rcdb"
-# export RCDB_SQLITE="/home/twig/data/rcdb_2023-03-21.sqlite"
-# source $RCDB_HOME"/environment.bash"
-
-## QADB
-# export QADB_HOME="/home/twig/code/jlab/qadb"
-# export CPATH=$QADB_HOME"/srcC/include":$CPATH
-# source $QADB_HOME"/env.sh" > /dev/null
-
-## COATJAVA
-# export COATJAVA="/home/twig/code/jlab/coatjava-7.1.0"
-# export PATH=$COATJAVA"/bin":$PATH
-
-## HIPO
-# export HIPO="/home/twig/code/jlab/hipo"
+## COATJAVA.
+export COATJAVA="/opt/coatjava-8.6.0"
