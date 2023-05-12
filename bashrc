@@ -163,3 +163,5 @@ export HIPO="/opt/hipo"
 
 ## COATJAVA.
 export COATJAVA="/opt/coatjava-8.6.0"
+export CLAS12DIR=$COATJAVA
+source $COATJAVA"/bin/env.sh" > /dev/null
