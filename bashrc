@@ -20,6 +20,8 @@ fi
 set -o noclobber # Don't overwrite by default.
 alias cp="cp -i"
 alias mv="mv -i"
+alias RM="/usr/bin/rm"
+alias rm="rm -i"
 
 # terminal colors.
 eval "`dircolors ~/.dircolors`"
