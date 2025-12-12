@@ -20,8 +20,6 @@ fi
 set -o noclobber # Don't overwrite by default.
 alias cp="cp -i"
 alias mv="mv -i"
-alias RM="/usr/bin/rm"
-alias rm="rm -i"
 
 # terminal colors.
 eval "`dircolors ~/.dircolors`"
@@ -33,25 +31,24 @@ alias egrep='egrep --color=auto'
 
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+# Set PS1.
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+parse_git_branch () {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}
+PS1='\n${debian_chroot:+($debian_chroot)}'
+PS1=$PS1'\[\033[01;32m\]\u@\h\[\033[00m\]:'
+PS1=$PS1'\[\033[01;34m\]\W\[\033[00m\]:'
+PS1=$PS1'\033[01;33m\]$(parse_git_branch)\[\033[00m\]'
+PS1=$PS1'\n\$ '
 
 # tmux with colors.
 alias tmux="export TERM=screen-256color && tmux"
 
 # make less more friendly for non-text input files/
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# Set title to user@host:dir.
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
 
 # Enable programmable completion features.
 if ! shopt -oq posix; then
@@ -81,6 +78,9 @@ alias l="ls -CF"
 alias s="ls"
 alias sl="ls"
 alias LS="ls"
+
+# show progress on rsync
+alias rsync="rsync --info=progress2"
 
 # general utilities
 alias c="clear"
@@ -137,31 +137,5 @@ export PATH=""
 export PATH=$PATH"/bin:/sbin"
 export PATH=$PATH":/usr/bin:/usr/sbin"
 export PATH=$PATH":/usr/local/bin:/usr/local/sbin"
-export PATH=$PATH":/home/twig/.local/bin"
+export PATH=$PATH":~/.local/bin"
 export PATH=$PATH":/opt/bin"
-
-## Java.
-export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
-
-## ROOT.
-export ROOT="/opt/root-6.28.00"
-source $ROOT/bin/thisroot.sh
-
-## CCDB.
-export CCDB_CONNECTION="sqlite:////home/twig/data/ccdb_2023-04-16.sqlite"
-export CCDB_HOME="/opt/ccdb"
-source $CCDB_HOME"/environment.bash"
-
-## RCDB.
-export RCDB_CONNECTION="mysql://rcdb@hallddb.jlab.org/rcdb"
-export RCDB_SQLITE="/home/twig/data/rcdb_2023-03-21.sqlite"
-export RCDB_HOME="/opt/rcdb"
-source $RCDB_HOME"/environment.bash"
-
-## HIPO.
-export HIPO="/opt/hipo"
-
-## COATJAVA.
-export COATJAVA="/opt/coatjava-8.6.0"
-export CLAS12DIR=$COATJAVA
-source $COATJAVA"/bin/env.sh" > /dev/null
